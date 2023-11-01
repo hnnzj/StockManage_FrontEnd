@@ -34,20 +34,6 @@ export default function Clientes_section() {
     direccion: "",
   });
 
-  const formSubmit = () => {
-    dispatch(createNewClient(newClient));
-    setNewClient({
-      nombre: "",
-      apellido: "",
-      telefono: "",
-      email: "",
-      ciudad: "",
-      pais: "",
-      estado: "",
-      direccion: "",
-    });
-  };
-
   const onClientChange = (e) => {
     setNewClient((prevalue) => {
       return {
@@ -103,6 +89,7 @@ export default function Clientes_section() {
                 onClientChange={onClientChange}
                 formSubmit={formSubmit}
                 newClient={newClient}
+                setNewClient={setNewClient}
               />
             </Grid>
             <Grid

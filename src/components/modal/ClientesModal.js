@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllClients, getProducts } from "../../redux/thunk";
+import { createNewClient, getAllClients, getProducts } from "../../redux/thunk";
 import { FormControl, FormGroup, FormLabel, TextField } from "@mui/material";
 
 const style = {
@@ -25,21 +25,32 @@ const style = {
 
 export default function ClientesModal({
   onClientChange,
-  formSubmit,
   newClient,
+  setNewClient,
 }) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    formSubmit();
-    setOpen(false);
-  };
 
   const dispatch = useDispatch();
   const clients = useSelector((state) => state.clients);
   const products = useSelector((state) => state.products);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    dispatch(createNewClient(newClient));
+    setNewClient({
+      nombre: "",
+      apellido: "",
+      telefono: "",
+      email: "",
+      ciudad: "",
+      pais: "",
+      estado: "",
+      direccion: "",
+    });
+    setOpen(false);
+  };
 
   React.useEffect(() => {
     clients?.clients?.length <= 0 && dispatch(getAllClients());
