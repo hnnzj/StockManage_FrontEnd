@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route element={<ProtectedRoute token={token} />}>
             <Route path="/app" element={<Drawer />} />
           </Route>
