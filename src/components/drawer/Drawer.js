@@ -26,7 +26,7 @@ function Drawer() {
       <Grid container>
         <Grid item md={2} sm={3} xs={3}>
           <Sidebar anchor={"left"} open={true} variant="permanent">
-            <Box>
+            <Box sx={{ width: "15vw" }}>
               <List>
                 {["Home", "Ventas", "Clientes", "Productos"].map(
                   (text, index) => (
