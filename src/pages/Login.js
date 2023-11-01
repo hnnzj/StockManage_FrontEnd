@@ -1,22 +1,30 @@
 import React from "react";
 import { LoginForm } from "../components/login/LoginForm";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 
 function Login() {
   return (
     <>
       <Grid
-        spacing={0}
         container
         justifyContent={"center"}
         alignItems={"center"}
-        justify={"center"}
         style={{ minHeight: "100vh" }}
       >
-        <Grid item xs={9} md={4} sm={6}>
-          <Box border={2} padding={5} borderRadius={5}>
+        <Grid item xs={9} md={2} sm={12}>
+          <Paper
+            elevation={5}
+            sx={{
+              padding: "40px",
+              textAlign: "center",
+            }}
+            square={false}
+          >
+            <Typography sx={{ fontWeight: "bold" }} variant="h5">
+              Stock Management
+            </Typography>
             <LoginForm />
-          </Box>
+          </Paper>
         </Grid>
       </Grid>
     </>

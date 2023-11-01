@@ -28,7 +28,7 @@ const style = {
   alignItems: "center",
 };
 
-export default function ProductosModal(onClientChange, formSubmit, newClient) {
+export default function ProductosModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);

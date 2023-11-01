@@ -3,12 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  allPedidos,
-  crearOrder,
-  getAllClients,
-  getProducts,
-} from "../../redux/thunk";
+import { getAllClients, getProducts } from "../../redux/thunk";
 import { FormControl, FormGroup, FormLabel, TextField } from "@mui/material";
 
 const style = {
@@ -39,8 +34,6 @@ export default function ClientesModal({
   };
   const handleClose = () => {
     setOpen(false);
-    setCliente("");
-    setProductos([]);
   };
 
   const dispatch = useDispatch();
@@ -51,9 +44,6 @@ export default function ClientesModal({
     clients?.clients?.length <= 0 && dispatch(getAllClients());
     products.products.length <= 0 && dispatch(getProducts());
   }, []);
-  const [productos, setProductos] = React.useState([]);
-
-  const [cliente, setCliente] = React.useState("");
 
   return (
     <>

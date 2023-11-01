@@ -68,11 +68,17 @@ export const getAllClients = () => {
 
 export const createNewClient = (data) => {
   return async (dispatch, getState) => {
-    const client = await axios.post(
+    const res = await axios.post(
       `https://stockmanage-api.onrender.com/api/crearClient`,
       data
     );
-    dispatch(createClient(client));
+
+    if (res.data.ok === true) {
+      Swal.fire({ icon: "warning", text: res.data.msg });
+    } else {
+      dispatch(createClient(res.data));
+      Swal.fire({ icon: "success", text: res.data.msg });
+    }
   };
 };
 
