@@ -24,9 +24,9 @@ function Drawer() {
   return (
     <>
       <Grid container>
-        <Grid item md={2}>
+        <Grid item md={2} sm={3} xs={3}>
           <Sidebar anchor={"left"} open={true} variant="permanent">
-            <Box sx={{ width: "255px" }}>
+            <Box>
               <List>
                 {["Home", "Ventas", "Clientes", "Productos"].map(
                   (text, index) => (
@@ -60,7 +60,7 @@ function Drawer() {
             </Box>
           </Sidebar>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={9} md={10} sm={9}>
           <Box sx={{ width: "100%", height: "100vh" }}>
             {render === 0 ? (
               <Home />

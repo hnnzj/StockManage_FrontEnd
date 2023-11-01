@@ -21,7 +21,7 @@ export const Pedidos = ({
   pedidosPerPage,
 }) => {
   return (
-    <div>
+    <Box>
       <TableContainer>
         <Divider />
         <Table>
@@ -87,6 +87,6 @@ export const Pedidos = ({
           sx={{ marginTop: 1 }}
         />
       </Box>
-    </div>
+    </Box>
   );
 };

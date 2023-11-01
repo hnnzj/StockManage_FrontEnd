@@ -55,13 +55,15 @@ function Ventas() {
       <Grid>
         <Grid
           xs={12}
+          sm={12}
+          md={12}
           item={true}
           width={"100%"}
           sx={{
             padding: "20px",
           }}
         >
-          <Grid sx={{ display: "flex", gap: 2 }}>
+          <Grid sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
             <Grid md={3} item>
               <BasicModal />
             </Grid>
@@ -98,8 +100,8 @@ function Ventas() {
 
         <Grid
           item
-          xs={2}
-          sm={6}
+          xs={12}
+          sm={12}
           md={12}
           sx={{
             height: "100%",
@@ -114,7 +116,7 @@ function Ventas() {
               <strong>No existen pedidos</strong>
             </Alert>
           ) : (
-            <Box>
+            <Box width={"100%"}>
               {pedido?.pedidos?.msg === "no" ? (
                 <Alert variant="outlined" severity="error">
                   <strong>{pedido.pedidos.data} </strong>
