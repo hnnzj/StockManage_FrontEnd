@@ -6,17 +6,20 @@ function Home() {
   const navigate = useNavigate();
 
   const register = () => {
-    axios.post(`${process.env.API_URL}/api/register`, {
+    axios.post(`${process.env.REACT_APP_API_URL}/api/register`, {
       username: "yowixd",
       email: "yowi@yowi.com",
       password: "241295",
     });
   };
   const login = async () => {
-    const data = await axios.post(`${process.env.API_URL}/api/login`, {
-      email: "yowi@yowi.com",
-      password: "241295",
-    });
+    const data = await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/login`,
+      {
+        email: "yowi@yowi.com",
+        password: "241295",
+      }
+    );
     localStorage.setItem("token", data.data.token);
   };
 
@@ -27,7 +30,10 @@ function Home() {
           authorization: localStorage.getItem("token"),
         },
       };
-      const data = await axios.get(`${process.env.API_URL}/api/`, config);
+      const data = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/`,
+        config
+      );
       navigate("/usuarios");
       localStorage.setItem("user", data.data.user_info.username);
     } catch (err) {

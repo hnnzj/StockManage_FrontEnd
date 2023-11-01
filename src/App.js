@@ -1,11 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Usuarios from "./components/clientes/Clientes_section";
-import Home from "./Home";
-import { Home as AppHome } from "./pages/Home";
 import Login from "./pages/Login";
-import Products from "./pages/Products";
 import { ProtectedRoute } from "./components/protectedroutes/ProtectedRoute";
-import Ventas from "./pages/Ventas";
 import Drawer from "./components/drawer/Drawer";
 
 function App() {
