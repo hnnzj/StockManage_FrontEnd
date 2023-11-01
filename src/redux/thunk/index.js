@@ -121,7 +121,6 @@ export const startLoggin = (data) => {
       `https://stockmanage-api.onrender.com/api/login`,
       data
     );
-    console.log(res.data);
     if (res.data.token) {
       localStorage.setItem("token", res.data.token);
     }
