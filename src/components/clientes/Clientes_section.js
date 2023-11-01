@@ -6,15 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import Swal from "sweetalert2";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import { Box, Button, Divider, Fade, Grid, Pagination } from "@mui/material";
-import ResponsiveAppBar from "../navbar/AppNavBar";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createNewClient,
-  deleteClient,
-  getAllClients,
-} from "../../redux/thunk";
+import { deleteClient, getAllClients } from "../../redux/thunk";
 import ClientesModal from "../modal/ClientesModal";
 
 export default function Clientes_section() {
@@ -87,7 +81,6 @@ export default function Clientes_section() {
             >
               <ClientesModal
                 onClientChange={onClientChange}
-                formSubmit={formSubmit}
                 newClient={newClient}
                 setNewClient={setNewClient}
               />
