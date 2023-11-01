@@ -6,7 +6,7 @@ function Home() {
   const navigate = useNavigate();
 
   const register = () => {
-    axios.post(`${process.env.REACT_APP_API_URL}/api/register`, {
+    axios.post(`https://stockmanage-api.onrender.com/api/register`, {
       username: "yowixd",
       email: "yowi@yowi.com",
       password: "241295",
@@ -14,7 +14,7 @@ function Home() {
   };
   const login = async () => {
     const data = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/login`,
+      `https://stockmanage-api.onrender.com/api/login`,
       {
         email: "yowi@yowi.com",
         password: "241295",
@@ -31,7 +31,7 @@ function Home() {
         },
       };
       const data = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/`,
+        `https://stockmanage-api.onrender.com/api/`,
         config
       );
       navigate("/usuarios");

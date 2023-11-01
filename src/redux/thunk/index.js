@@ -16,7 +16,7 @@ import { createOrder, setPedidos } from "../store/slice/pedidosSlice";
 export const allPedidos = (nombre, fecha) => {
   return async (dispatch) => {
     const data = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/cargarPedidos`,
+      `https://stockmanage-api.onrender.com/api/cargarPedidos`,
       {
         fecha,
         nombre,
@@ -32,7 +32,7 @@ export const allPedidos = (nombre, fecha) => {
 export const crearOrder = (data) => {
   return async (dispatch) => {
     const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/crearPedido`,
+      `https://stockmanage-api.onrender.com/api/crearPedido`,
       data
     );
     console.log(res.data);
@@ -48,7 +48,7 @@ export const crearOrder = (data) => {
 export const deleteClient = (id) => {
   return async (dispatch, getState) => {
     const data = await axios.delete(
-      `${process.env.REACT_APP_API_URL}/api/deleteClient/`,
+      `https://stockmanage-api.onrender.com/api/deleteClient/`,
       {
         params: { id },
       }
@@ -60,7 +60,7 @@ export const deleteClient = (id) => {
 export const getAllClients = () => {
   return async (dispatch, getState) => {
     const data = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/getAllClient`
+      `https://stockmanage-api.onrender.com/api/getAllClient`
     );
     dispatch(loadClients(data));
   };
@@ -69,7 +69,7 @@ export const getAllClients = () => {
 export const createNewClient = (data) => {
   return async (dispatch, getState) => {
     const client = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/crearClient`,
+      `https://stockmanage-api.onrender.com/api/crearClient`,
       data
     );
     dispatch(createClient(client));
@@ -79,7 +79,9 @@ export const createNewClient = (data) => {
 export const getProducts = () => {
   return async (dispatch, getState) => {
     dispatch(startLoading());
-    const data = await axios.get(`${process.env.REACT_APP_API_URL}/api/all`);
+    const data = await axios.get(
+      `https://stockmanage-api.onrender.com/api/all`
+    );
     if (data.data.length <= 0) {
       return "La chota madre";
     } else {
@@ -90,7 +92,7 @@ export const getProducts = () => {
 
 export const delProduct = (id) => {
   return async (dispatch, getState) => {
-    await axios.delete(`${process.env.REACT_APP_API_URL}/api/delete`, {
+    await axios.delete(`https://stockmanage-api.onrender.com/api/delete`, {
       data: { id },
     });
 
@@ -101,7 +103,7 @@ export const delProduct = (id) => {
 export const crearProduct = (data) => {
   return async (dispatch) => {
     const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/crear`,
+      `https://stockmanage-api.onrender.com/api/crear`,
       data
     );
     if (res.data.ok === true) {
@@ -116,7 +118,7 @@ export const crearProduct = (data) => {
 export const startLoggin = (data) => {
   return async (dispatch) => {
     const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}/api/login`,
+      `https://stockmanage-api.onrender.com/api/login`,
       data
     );
     console.log(res.data);
