@@ -91,10 +91,13 @@ export default function Clientes_section() {
           <Grid container>
             <Grid
               item
-              xs={2}
-              sm={2}
+              xs={12}
+              sm={12}
               md={12}
-              sx={{ display: "flex", padding: "20px" }}
+              sx={{
+                display: "flex",
+                padding: "20px",
+              }}
             >
               <ClientesModal
                 onClientChange={onClientChange}
@@ -104,18 +107,19 @@ export default function Clientes_section() {
             </Grid>
             <Grid
               item
-              xs={2}
-              sm={6}
+              xs={12}
+              sm={8}
               md={12}
               sx={{
                 height: "100%",
-                width: "100%",
+                width: "100vw",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <TableContainer>
+              <TableContainer sx={{ width: "80vw" }}>
                 <Divider />
                 <Table aria-label="simple table">
                   <TableHead>

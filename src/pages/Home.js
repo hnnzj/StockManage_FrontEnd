@@ -52,8 +52,8 @@ export const Home = () => {
 
   return (
     <>
-      <Grid container>
-        <Grid item xs={6}>
+      <Grid container sx={{ display: "flex", gap: 2 }}>
+        <Grid item xs={9} sm={9} md={6}>
           <Paper
             sx={{
               display: "flex",
@@ -70,92 +70,92 @@ export const Home = () => {
             <StadisticGraphic />
           </Paper>
         </Grid>
-        <Grid item xs={6}>
-          <TableContainer>
-            <Table
-              component={Paper}
-              elevation={4}
-              sx={{
-                width: "35%",
-                position: "fixed",
-                top: 36,
-                right: 50,
-              }}
-            >
-              <TableHead>
-                <Typography component="h1" variant="h6" marginTop={2}>
-                  Ultimos pedidos
-                </Typography>
-                <TableRow>
-                  <TableCell align="left">Nombre</TableCell>
-                  <TableCell align="left">Total</TableCell>
-                  <TableCell align="left">Fecha</TableCell>
-                  <TableCell align="left">Estado</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {orders?.pedidos?.msg === "no" ? (
-                  <h2>No hay pedidos</h2>
-                ) : (
-                  orders?.pedidos?.data
-                    ?.toReversed()
-                    .slice(0, 8)
-                    .map((el) => {
-                      let aux = 0;
-                      const tabla = (
-                        <TableRow key={el.id}>
-                          <TableCell align="left">
-                            {"N°" + el.id + " | " + el.cliente}
-                          </TableCell>
-                          <TableCell align="left">
-                            {el.productos.map((el) => {
-                              let total = 0;
-                              total += el.price * el.quantity;
-                              aux += total;
-                              return (
-                                <Chip
-                                  key={el.title}
-                                  icon={<PaidIcon />}
-                                  color="success"
-                                  label={aux}
-                                  variant="outlined"
-                                  sx={{ fontSize: "20px" }}
-                                />
-                              );
-                            })}
-                          </TableCell>
-                          <TableCell width="30%" align="left">
-                            {el.createdDate}
-                          </TableCell>
-                          <TableCell
-                            sx={{ paddingRight: "60px" }}
-                            align="center"
-                          >
-                            <Badge
-                              variant="string"
-                              badgeContent={el.status.toUpperCase()}
-                              color={
-                                el.status === "processing"
-                                  ? "warning"
-                                  : el.status === "success"
-                                  ? "success"
-                                  : "danger"
-                              }
-                              size="large"
-                            />
-                          </TableCell>
-                        </TableRow>
-                      );
-                      return tabla;
-                    })
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer>
+        <Grid item xs={9} sm={9} md={5}>
+          <Paper
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              alignContent: "center",
+              marginTop: "37px",
+              marginBottom: "-37px",
+              width: "100%",
+              marginLeft: "25px",
+            }}
+            elevation={4}
+          >
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <Typography component="h1" variant="subtitle1" marginTop={2}>
+                    Ultimos pedidos
+                  </Typography>
+                  <TableRow>
+                    <TableCell align="left">Nombre</TableCell>
+                    <TableCell align="left">Total</TableCell>
+                    <TableCell align="left">Fecha</TableCell>
+                    <TableCell align="left">Estado</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {orders?.pedidos?.msg === "no" ? (
+                    <h2>No hay pedidos</h2>
+                  ) : (
+                    orders?.pedidos?.data
+                      ?.toReversed()
+                      .slice(0, 8)
+                      .map((el) => {
+                        let aux = 0;
+                        const tabla = (
+                          <TableRow key={el.id}>
+                            <TableCell align="left">
+                              {"N°" + el.id + " | " + el.cliente}
+                            </TableCell>
+                            <TableCell align="left">
+                              {el.productos.map((el) => {
+                                let total = 0;
+                                total += el.price * el.quantity;
+                                aux += total;
+                                return (
+                                  <Chip
+                                    key={el.title}
+                                    icon={<PaidIcon />}
+                                    color="success"
+                                    label={aux}
+                                    variant="outlined"
+                                    sx={{ fontSize: "20px" }}
+                                  />
+                                );
+                              })}
+                            </TableCell>
+                            <TableCell align="left">{el.createdDate}</TableCell>
+                            <TableCell align="center">
+                              <Badge
+                                variant="string"
+                                badgeContent={el.status.toUpperCase()}
+                                color={
+                                  el.status === "processing"
+                                    ? "warning"
+                                    : el.status === "success"
+                                    ? "success"
+                                    : "danger"
+                                }
+                                size="large"
+                              />
+                            </TableCell>
+                          </TableRow>
+                        );
+                        return tabla;
+                      })
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
         </Grid>
       </Grid>
       <Grid>
-        <Grid item xs={6}>
+        <Grid item xs={9} sm={9} md={6}>
           <TableContainer
             component={Paper}
             elevation={5}
