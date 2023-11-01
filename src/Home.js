@@ -6,14 +6,14 @@ function Home() {
   const navigate = useNavigate();
 
   const register = () => {
-    axios.post("http://localhost:5001/api/register", {
+    axios.post(`${process.env.API_URL}/api/register`, {
       username: "yowixd",
       email: "yowi@yowi.com",
       password: "241295",
     });
   };
   const login = async () => {
-    const data = await axios.post("http://localhost:5001/api/login", {
+    const data = await axios.post(`${process.env.API_URL}/api/login`, {
       email: "yowi@yowi.com",
       password: "241295",
     });
@@ -27,7 +27,7 @@ function Home() {
           authorization: localStorage.getItem("token"),
         },
       };
-      const data = await axios.get("http://localhost:5001/api/", config);
+      const data = await axios.get(`${process.env.API_URL}/api/`, config);
       navigate("/usuarios");
       localStorage.setItem("user", data.data.user_info.username);
     } catch (err) {
