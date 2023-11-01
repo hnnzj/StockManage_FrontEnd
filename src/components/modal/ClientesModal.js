@@ -33,6 +33,7 @@ export default function ClientesModal({
     setOpen(true);
   };
   const handleClose = () => {
+    formSubmit();
     setOpen(false);
   };
 
@@ -141,7 +142,7 @@ export default function ClientesModal({
             </FormControl>
           </FormGroup>
           <Button
-            onClick={formSubmit}
+            onClick={handleClose}
             variant="contained"
             sx={{ marginTop: "20px" }}
           >
