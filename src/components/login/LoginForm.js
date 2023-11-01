@@ -33,6 +33,7 @@ export const LoginForm = () => {
   };
 
   const submitLogin = () => {
+    console.log(user);
     dispatch(startLoggin(user));
     return navigate("/app");
   };
