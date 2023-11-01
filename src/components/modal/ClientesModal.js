@@ -38,17 +38,19 @@ export default function ClientesModal({
     setOpen(true);
   };
   const handleClose = () => {
-    dispatch(createNewClient(newClient));
-    setNewClient({
-      nombre: "",
-      apellido: "",
-      telefono: "",
-      email: "",
-      ciudad: "",
-      pais: "",
-      estado: "",
-      direccion: "",
-    });
+    if (newClient.nombre.length > 0) {
+      dispatch(createNewClient(newClient));
+      setNewClient({
+        nombre: "",
+        apellido: "",
+        telefono: "",
+        email: "",
+        ciudad: "",
+        pais: "",
+        estado: "",
+        direccion: "",
+      });
+    }
     setOpen(false);
   };
 
