@@ -29,7 +29,7 @@ function Ventas() {
   const [page, setPage] = useState(0);
   const [searchName, setSearchName] = useState({ nombre: "" });
   const pedidosPerPage = 8;
-  const limit = pedido?.pedidos?.data?.length / pedidosPerPage;
+  const limit = 2;
   let [fecha, setFecha] = useState();
   const handleChange = (event, value) => {
     setPage(value - 1);
