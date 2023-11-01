@@ -24,12 +24,12 @@ function Ventas() {
   const dispatch = useDispatch();
   const pedido = useSelector((state) => state.pedidos);
   useEffect(() => {
-    pedido?.pedidos?.data.length <= 0 && dispatch(allPedidos());
+    pedido?.pedidos?.data?.length <= 0 && dispatch(allPedidos());
   }, [pedido, dispatch]);
   const [page, setPage] = useState(0);
   const [searchName, setSearchName] = useState({ nombre: "" });
   const pedidosPerPage = 8;
-  const limit = pedido?.pedidos?.data.length / pedidosPerPage;
+  const limit = pedido?.pedidos?.data?.length / pedidosPerPage;
   let [fecha, setFecha] = useState();
   const handleChange = (event, value) => {
     setPage(value - 1);
@@ -109,19 +109,27 @@ function Ventas() {
             alignItems: "center",
           }}
         >
-          {pedido?.pedidos?.msg === "no" ? (
+          {pedido?.pedidos?.data === "undefined" ? (
             <Alert variant="outlined" severity="error">
-              <strong>{pedido.pedidos.data} </strong>
+              <strong>No existen pedidos</strong>
             </Alert>
           ) : (
-            <Box width={"100%"}>
-              <Pedidos
-                pedido={pedido}
-                page={page}
-                pedidosPerPage={pedidosPerPage}
-                handleChange={handleChange}
-                limit={limit}
-              />
+            <Box>
+              {pedido?.pedidos?.msg === "no" ? (
+                <Alert variant="outlined" severity="error">
+                  <strong>{pedido.pedidos.data} </strong>
+                </Alert>
+              ) : (
+                <Box width={"100%"}>
+                  <Pedidos
+                    pedido={pedido}
+                    page={page}
+                    pedidosPerPage={pedidosPerPage}
+                    handleChange={handleChange}
+                    limit={limit}
+                  />
+                </Box>
+              )}
             </Box>
           )}
         </Grid>
